@@ -69,14 +69,14 @@ config = config.decode('utf-8')
 config = yaml.safe_load(config)
 #st.write(config)
 
-
+cookie_name = "random_cookie_name"  # Nome consistente
 # Configurando a autenticação
 authenticator = stauth.Authenticate(
         
         names=[user['name'] for user in config['credentials']['usernames'].values()],
         usernames=list(config['credentials']['usernames'].keys()),
         passwords=[user['password'] for user in config['credentials']['usernames'].values()],
-        cookie_name="random_cookie_name",  # Verifique se isso está apontando para 'random_cookie_name'
+        cookie_name=cookie_name,  # Verifique se isso está apontando para 'random_cookie_name'
         key=config['cookie']['key'],  # Verifique se a chave 'random_signature_key' está correta
         cookie_expiry_days=config['cookie']['expiry_days']
 
@@ -93,6 +93,7 @@ applicativo = "Base Instalada"
 
 if authentication_status:
     authenticator.logout('Logout', 'sidebar')
+    authenticator.cookie_manager.clear()
 if authentication_status == False:
         st.error('Nome de usuário ou senha incorretos')
 if authentication_status == None:
