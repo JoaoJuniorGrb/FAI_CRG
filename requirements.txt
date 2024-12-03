@@ -119,6 +119,7 @@ yarl==1.9.4
 zipp==3.17.0
 streamlit-authenticator==0.1.5
 toml==0.10.2
+
 firebase-admin==6.5.0
 datetime
 streamlit-autorefresh==1.0.1
