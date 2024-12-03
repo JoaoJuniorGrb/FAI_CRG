@@ -76,7 +76,7 @@ authenticator = stauth.Authenticate(
         names=[user['name'] for user in config['credentials']['usernames'].values()],
         usernames=list(config['credentials']['usernames'].keys()),
         passwords=[user['password'] for user in config['credentials']['usernames'].values()],
-        cookie_name=config['cookie']['name'],  # Verifique se isso está apontando para 'random_cookie_name'
+        cookie_name="test_cookie_name",  # Verifique se isso está apontando para 'random_cookie_name'
         key=config['cookie']['key'],  # Verifique se a chave 'random_signature_key' está correta
         cookie_expiry_days=config['cookie']['expiry_days']
 
@@ -92,7 +92,7 @@ if authentication_status:
 applicativo = "Base Instalada"
 
 if authentication_status:
-    authenticator.logout('Logout', 'sidebar', cookie_name="test_cookie_name")
+    authenticator.logout('Logout', 'sidebar')
 if authentication_status == False:
         st.error('Nome de usuário ou senha incorretos')
 if authentication_status == None:
