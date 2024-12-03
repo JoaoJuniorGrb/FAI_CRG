@@ -127,7 +127,7 @@ if applicativo == "Base Instalada":
         df_isoltutions = pd.read_json(isolutions)
         #st.dataframe(df_original)
 
-        levantamento = st.selectbox('Levantamento', ('Base instalada Cargil', 'Isolutions Grundfos'))
+        levantamento = st.selectbox('Levantamento', ('Base instalada Cargil'))
         
 #-----------------------------------------------------------dashboard------------------------------------------------
 
