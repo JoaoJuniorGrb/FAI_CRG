@@ -93,7 +93,7 @@ applicativo = "Base Instalada"
 
 if authentication_status:
     authenticator.logout('Logout', 'sidebar')
-    authenticator.cookie_manager.clear()
+    
 if authentication_status == False:
         st.error('Nome de usuário ou senha incorretos')
 if authentication_status == None:
