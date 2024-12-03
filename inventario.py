@@ -91,7 +91,7 @@ if authentication_status:
 
 applicativo = "Base Instalada"
 
-if authentication_status == True:
+if authentication_status:
     authenticator.logout('Logout', 'sidebar')
 if authentication_status == False:
         st.error('Nome de usuário ou senha incorretos')
