@@ -76,7 +76,7 @@ authenticator = stauth.Authenticate(
         names=[user['name'] for user in config['credentials']['usernames'].values()],
         usernames=list(config['credentials']['usernames'].keys()),
         passwords=[user['password'] for user in config['credentials']['usernames'].values()],
-        cookie_name=cookie_name,  # Verifique se isso está apontando para 'random_cookie_name'
+        cookie_name=['cookie']['name'],  # Verifique se isso está apontando para 'random_cookie_name'
         key=config['cookie']['key'],  # Verifique se a chave 'random_signature_key' está correta
         cookie_expiry_days=config['cookie']['expiry_days']
 
@@ -85,19 +85,18 @@ authenticator = stauth.Authenticate(
 name, authentication_status, username = authenticator.login('Login', 'sidebar')
 
 #Inicial
-if authentication_status:
-    programas = ["Perda de Carga",'Equações de afinidade',"Propriedades Termodinâmicas","Placa de orificio","QHS","Sistemas de controle","Final", "Base Instalada",'Gestão de projetos']
-    legendas1 = ["Cálculo de perda de carga",'Em desenvolvimento',"Fornece gráfico de propriedades termodinamicas selecionadas",'Em desenvolvimento','Em desenvolvimento','Em desenvolvimento',"Informações sobre o programa","Levantamentos","Informações sobre Projetos"]
-
-applicativo = "Base Instalada"
-
-if authentication_status:
-    authenticator.logout('Logout', 'sidebar')
-    
 if authentication_status == False:
         st.error('Nome de usuário ou senha incorretos')
 if authentication_status == None:
         st.warning('Por favor, insira suas credenciais')
+    
+if authentication_status:
+    programas = ["Perda de Carga",'Equações de afinidade',"Propriedades Termodinâmicas","Placa de orificio","QHS","Sistemas de controle","Final", "Base Instalada",'Gestão de projetos']
+    legendas1 = ["Cálculo de perda de carga",'Em desenvolvimento',"Fornece gráfico de propriedades termodinamicas selecionadas",'Em desenvolvimento','Em desenvolvimento','Em desenvolvimento',"Informações sobre o programa","Levantamentos","Informações sobre Projetos"]
+    authenticator.logout('Logout', 'sidebar')
+applicativo = "Base Instalada"
+  
+
 #------------------------------------------------------------------------------------------------------------------------------
 
 #------------------------------------------------------------------------------------------------------------------------------
