@@ -164,7 +164,7 @@ if applicativo == "Base Instalada":
          
             if dashboard == 'Geral':
                 #st.set_page_config(layout="wide")
-                pecas_pesquisa = st.multiselect("Itens da pesquisa:", lista_peças, ['MECHANICAL SEAL', 'BEARING CARRIER', 'HOLDER BEARING', 'SPRING BEARING', 'HOUSING BEARING', 'BEARING', 'BEARING HOUSE', 'SHAFT', 'SHAFT SLEEVE', 'IMPELLER', 'IMPROSEAL', 'GASKET'])
+                pecas_pesquisa = st.multiselect("Itens da pesquisa:", lista_peças, ["MECHANICAL SEAL",'GASKET',"IMPELLER","CASING","INPRO","IMPROSEAL","KEY","O-O-RING"])
                 df_peças_filtrado = df_peças_filtrado[df_peças_filtrado['Description'].isin(pecas_pesquisa)]
                 st.subheader('peças',anchor=False)
                 dsh1, dsh2 = st.columns([0.2,0.3], gap='small')
